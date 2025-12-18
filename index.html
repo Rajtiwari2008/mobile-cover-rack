@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mobile Cover Rack Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    h1 {
+      margin-bottom: 12px;
+      font-size: 1.4rem;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      align-items: end;
+    }
+
+    label {
+      font-size: 0.85rem;
+      display: block;
+      margin-bottom: 4px;
+      color: #4b5563;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 6px 8px;
+      border-radius: 4px;
+      border: 1px solid #d1d5db;
+      font-size: 0.9rem;
+    }
+
+    button {
+      padding: 8px 12px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #6b7280;
+      color: white;
+    }
+
+    .btn-danger {
+      background: #dc2626;
+      color: white;
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .row > .col {
+      flex: 1 1 280px;
+    }
+
+    .message {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      min-height: 1.2em;
+    }
+
+    .message.error {
+      color: #b91c1c;
+    }
+
+    .message.success {
+      color: #047857;
+    }
+
+    /* Rack grid */
+    .rack-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 600px; /* a bit wider for 12 cols, still scrollable on phones */
+      font-size: 0.8rem;
+    }
+
+    th, td {
+      border: 1px solid #e5e7eb;
+      padding: 6px;
+      text-align: center;
+      white-space: nowrap; /* keeps header cells readable on small screens */
+    }
+
+    th {
+      background: #f9fafb;
+      font-weight: 600;
+    }
+
+    .cell-empty {
+      background: #f3f4f6;
+      color: #9ca3af;
+    }
+
+    .cell-has-cover {
+      background: #ecfdf5;
+    }
+
+    .cell-highlight {
+      background: #facc15 !important;
+      box-shadow: 0 0 0 2px #f59e0b inset;
+    }
+
+    .cover-list {
+      max-height: 260px;
+      overflow-y: auto;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      padding: 6px;
+      font-size: 0.85rem;
+      background: #f9fafb;
+    }
+
+    .cover-item {
+      padding: 4px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .cover-item:last-child {
+      border-bottom: none;
+    }
+
+    .cover-item-header {
+      font-weight: 600;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: #e5e7eb;
+      margin-left: 4px;
+    }
+
+    /* Small phones */
+    @media (max-width: 480px) {
+      body {
+        padding: 8px;
+      }
+
+      h1 {
+        font-size: 1.1rem;
+      }
+
+      .card {
+        padding: 12px;
+      }
+
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      table {
+        font-size: 0.75rem;
+        min-width: 520px;
+      }
+    }
+
+    /* Tablets */
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+      }
+
+      .row > .col {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Mobile Cover Rack Manager</h1>
+
+  <!-- Add / Update form -->
+  <div class="card">
+    <h2>Add / Update Cover</h2>
+    <form id="cover-form">
+      <div>
+        <label for="model">Mobile Model Name</label>
+        <input type="text" id="model" required placeholder="Redmi Note 13" />
+      </div>
+      <div>
+        <label for="row">Row (1–5)</label>
+        <input type="number" id="row" min="1" max="5" required />
+      </div>
+      <div>
+        <label for="col">Column (1–12)</label>
+        <input type="number" id="col" min="1" max="12" required />
+      </div>
+      <div>
+        <label for="qty">Quantity</label>
+        <input type="number" id="qty" min="1" required />
+      </div>
+      <div>
+        <button type="submit" class="btn-primary btn-block">Save / Update</button>
+      </div>
+    </form>
+    <div id="form-message" class="message"></div>
+  </div>
+
+  <!-- Search & Delete -->
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <h2>Search Cover</h2>
+        <form id="search-form">
+          <div style="display:flex; gap:8px; align-items:flex-end;">
+            <div style="flex:1;">
+              <label for="search-model">Model Name</label>
+              <input type="text" id="search-model" placeholder="Enter model to search" />
+            </div>
+            <div style="width:120px;">
+              <button type="submit" class="btn-secondary btn-block">Search</button>
+            </div>
+          </div>
+        </form>
+        <div id="search-result" class="message"></div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <h2>Delete Cover</h2>
+        <form id="delete-form">
+          <div style="display:flex; gap:8px; align-items:flex-end;">
+            <div style="flex:1;">
+              <label for="delete-model">Model Name</label>
+              <input type="text" id="delete-model" placeholder="Model to delete" />
+            </div>
+            <div style="width:120px;">
+              <button type="submit" class="btn-danger btn-block">Delete</button>
+            </div>
+          </div>
+        </form>
+        <div id="delete-message" class="message"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rack grid + list -->
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <h2>Rack (5 × 12)</h2>
+        <div class="rack-wrapper">
+          <table id="rack-table">
+            <thead>
+            <tr>
+              <th>Row Col</th>
+              <th>1</th>
+              <th>2</th>
+              <th>3</th>
+              <th>4</th>
+              <th>5</th>
+              <th>6</th>
+              <th>7</th>
+              <th>8</th>
+              <th>9</th>
+              <th>10</th>
+              <th>11</th>
+              <th>12</th>
+            </tr>
+            </thead>
+            <tbody id="rack-body">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <h2>All Covers</h2>
+        <div id="cover-list" class="cover-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const ROWS = 5;
+  const COLS = 12;
+  const STORAGE_KEY = "coversData";
+
+  function loadCovers() {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return [];
+    try {
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function saveCovers(covers) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(covers));
+  }
+
+  const rackBody = document.getElementById("rack-body");
+  const coverListDiv = document.getElementById("cover-list");
+  const formMessage = document.getElementById("form-message");
+  const searchResult = document.getElementById("search-result");
+  const deleteMessage = document.getElementById("delete-message");
+
+  const coverForm = document.getElementById("cover-form");
+  const searchForm = document.getElementById("search-form");
+  const deleteForm = document.getElementById("delete-form");
+
+  const modelInput = document.getElementById("model");
+  const rowInput = document.getElementById("row");
+  const colInput = document.getElementById("col");
+  const qtyInput = document.getElementById("qty");
+  const searchModelInput = document.getElementById("search-model");
+  const deleteModelInput = document.getElementById("delete-model");
+
+  function renderRack(highlightKey) {
+    rackBody.innerHTML = "";
+    const covers = loadCovers();
+    const map = {};
+    covers.forEach(c => {
+      const key = c.row + "-" + c.col;
+      map[key] = c;
+    });
+
+    for (let r = 1; r <= ROWS; r++) {
+      const tr = document.createElement("tr");
+      const th = document.createElement("th");
+      th.textContent = "Row " + r;
+      tr.appendChild(th);
+
+      for (let c = 1; c <= COLS; c++) {
+        const td = document.createElement("td");
+        const key = r + "-" + c;
+        const cover = map[key];
+
+        if (cover) {
+          td.classList.add("cell-has-cover");
+          td.innerHTML =
+            `<div><strong>${cover.model}</strong></div>` +
+            `<div>Qty: ${cover.qty}</div>`;
+        } else {
+          td.classList.add("cell-empty");
+          td.textContent = "Empty";
+        }
+
+        if (highlightKey && key === highlightKey) {
+          td.classList.add("cell-highlight");
+        }
+
+        tr.appendChild(td);
+      }
+      rackBody.appendChild(tr);
+    }
+  }
+
+  function renderCoverList() {
+    const covers = loadCovers();
+    if (covers.length === 0) {
+      coverListDiv.innerHTML = "<div>No covers stored.</div>";
+      return;
+    }
+
+    covers.sort((a, b) => a.row - b.row || a.col - b.col);
+
+    coverListDiv.innerHTML = covers
+      .map(
+        c =>
+          `<div class="cover-item">
+            <div class="cover-item-header">${c.model}
+              <span class="tag">Row ${c.row}, Col ${c.col}</span>
+            </div>
+            <div>Qty: ${c.qty}</div>
+          </div>`
+      )
+      .join("");
+  }
+
+  coverForm.addEventListener("submit", e => {
+    e.preventDefault();
+    formMessage.textContent = "";
+    formMessage.className = "message";
+
+    const model = modelInput.value.trim();
+    const row = Number(rowInput.value);
+    const col = Number(colInput.value);
+    const qty = Number(qtyInput.value);
+
+    if (!model) {
+      setMessage(formMessage, "Model name is required.", "error");
+      return;
+    }
+    if (!Number.isInteger(row) || row < 1 || row > ROWS) {
+      setMessage(formMessage, "Row must be between 1 and " + ROWS + ".", "error");
+      return;
+    }
+    if (!Number.isInteger(col) || col < 1 || col > COLS) {
+      setMessage(formMessage, "Column must be between 1 and " + COLS + ".", "error");
+      return;
+    }
+    if (!Number.isInteger(qty) || qty <= 0) {
+      setMessage(formMessage, "Quantity must be a positive number.", "error");
+      return;
+    }
+
+    const covers = loadCovers();
+    const index = covers.findIndex(
+      c => c.model.toLowerCase() === model.toLowerCase()
+    );
+
+    if (index >= 0) {
+      covers[index].row = row;
+      covers[index].col = col;
+      covers[index].qty = qty;
+      setMessage(formMessage, "Cover updated successfully.", "success");
+    } else {
+      covers.push({ model, row, col, qty });
+      setMessage(formMessage, "Cover added successfully.", "success");
+    }
+
+    saveCovers(covers);
+    renderRack(row + "-" + col);
+    renderCoverList();
+    coverForm.reset();
+  });
+
+  searchForm.addEventListener("submit", e => {
+    e.preventDefault();
+    searchResult.textContent = "";
+    searchResult.className = "message";
+
+    const query = searchModelInput.value.trim();
+    if (!query) {
+      setMessage(searchResult, "Please enter a model name to search.", "error");
+      renderRack();
+      return;
+    }
+
+    const covers = loadCovers();
+    const match = covers.find(
+      c => c.model.toLowerCase() === query.toLowerCase()
+    );
+
+    if (!match) {
+      setMessage(searchResult, "Cover not available.", "error");
+      renderRack();
+      return;
+    }
+
+    setMessage(
+      searchResult,
+      `Model: ${match.model} | Qty: ${match.qty} | Location: Row ${match.row}, Column ${match.col}`,
+      "success"
+    );
+    const highlightKey = match.row + "-" + match.col;
+    renderRack(highlightKey);
+  });
+
+  deleteForm.addEventListener("submit", e => {
+    e.preventDefault();
+    deleteMessage.textContent = "";
+    deleteMessage.className = "message";
+
+    const model = deleteModelInput.value.trim();
+    if (!model) {
+      setMessage(deleteMessage, "Please enter a model name to delete.", "error");
+      return;
+    }
+
+    const covers = loadCovers();
+    const before = covers.length;
+    const filtered = covers.filter(
+      c => c.model.toLowerCase() !== model.toLowerCase()
+    );
+
+    if (filtered.length === before) {
+      setMessage(deleteMessage, "Model not found.", "error");
+    } else {
+      saveCovers(filtered);
+      renderRack();
+      renderCoverList();
+      setMessage(deleteMessage, "Cover deleted successfully.", "success");
+      deleteForm.reset();
+    }
+  });
+
+  function setMessage(el, text, type) {
+    el.textContent = text;
+    el.className = "message " + (type || "");
+  }
+
+  renderRack();
+  renderCoverList();
+</script>
+</body>
+</html>
