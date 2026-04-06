@@ -1,552 +1,495 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Mobile Cover Rack Manager</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!DOCTYPE html>
+    <html lang="en">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Campus Prime PG and Hostel | Luxury Living in Gandhinagar</title>
 
-    body {
-      margin: 0;
-      padding: 16px;
-      background: #f3f4f6;
-      color: #111827;
-    }
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    h1 {
-      margin-bottom: 12px;
-      font-size: 1.4rem;
-      text-align: center;
-    }
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+        <style>
+            :root {
+                --primary-gold: #D4AF37;
+                --dark-bg: #1a1a1a;
+                --soft-beige: #f9f7f2;
+            }
 
-    .card {
-      background: white;
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 16px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
+            body {
+                font-family: 'Poppins', sans-serif;
+                scroll-behavior: smooth;
+                background-color: var(--soft-beige);
+                color: #333;
+            }
 
-    .card h2 {
-      margin-top: 0;
-      font-size: 1.1rem;
-    }
+            h1,
+            h2,
+            h3,
+            .serif {
+                font-family: 'Playfair Display', serif;
+            }
 
-    form {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
-      align-items: end;
-    }
+            /* Glassmorphism Navbar */
+            .nav-glass {
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            }
 
-    label {
-      font-size: 0.85rem;
-      display: block;
-      margin-bottom: 4px;
-      color: #4b5563;
-    }
+            /* Hero Section Styling */
+            .hero-overlay {
+                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+            }
 
-    input, select {
-      width: 100%;
-      padding: 6px 8px;
-      border-radius: 4px;
-      border: 1px solid #d1d5db;
-      font-size: 0.9rem;
-    }
+            /* Premium Transitions */
+            .btn-gold {
+                background-color: var(--primary-gold);
+                transition: all 0.4s ease;
+            }
 
-    button {
-      padding: 8px 12px;
-      border-radius: 4px;
-      border: none;
-      cursor: pointer;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
+            .btn-gold:hover {
+                background-color: #b8962d;
+                transform: translateY(-2px);
+                box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+            }
 
-    .btn-primary {
-      background: #2563eb;
-      color: white;
-    }
+            .room-card:hover .room-img {
+                transform: scale(1.1);
+            }
 
-    .btn-secondary {
-      background: #6b7280;
-      color: white;
-    }
+            .gallery-item {
+                overflow: hidden;
+                border-radius: 8px;
+            }
 
-    .btn-danger {
-      background: #dc2626;
-      color: white;
-    }
+            .gallery-item img {
+                transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            }
 
-    .btn-block {
-      width: 100%;
-    }
+            .gallery-item:hover img {
+                transform: scale(1.15);
+            }
 
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
+            /* Floating Buttons */
+            .float-btn {
+                position: fixed;
+                bottom: 20px;
+                z-index: 1000;
+                padding: 12px 20px;
+                border-radius: 50px;
+                display: flex;
+                align-items: center;
+                color: white;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+        </style>
+    </head>
 
-    .row > .col {
-      flex: 1 1 280px;
-    }
+    <body>
 
-    .message {
-      margin-top: 8px;
-      font-size: 0.85rem;
-      min-height: 1.2em;
-    }
+        <nav class="nav-glass fixed w-full z-50 transition-all duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-20 items-center">
+                    <div class="flex-shrink-0 flex flex-col">
+                        <span class="text-xl font-bold tracking-widest text-gray-800 serif">THE CAMPUS PRIME</span>
+                        <span class="text-xs uppercase tracking-widest text-yellow-600 font-semibold">PG & Hostel</span>
+                    </div>
 
-    .message.error {
-      color: #b91c1c;
-    }
-
-    .message.success {
-      color: #047857;
-    }
-
-    /* Rack grid */
-    .rack-wrapper {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      min-width: 600px; /* a bit wider for 12 cols, still scrollable on phones */
-      font-size: 0.8rem;
-    }
-
-    th, td {
-      border: 1px solid #e5e7eb;
-      padding: 6px;
-      text-align: center;
-      white-space: nowrap; /* keeps header cells readable on small screens */
-    }
-
-    th {
-      background: #f9fafb;
-      font-weight: 600;
-    }
-
-    .cell-empty {
-      background: #f3f4f6;
-      color: #9ca3af;
-    }
-
-    .cell-has-cover {
-      background: #ecfdf5;
-    }
-
-    .cell-highlight {
-      background: #facc15 !important;
-      box-shadow: 0 0 0 2px #f59e0b inset;
-    }
-
-    .cover-list {
-      max-height: 260px;
-      overflow-y: auto;
-      border: 1px solid #e5e7eb;
-      border-radius: 4px;
-      padding: 6px;
-      font-size: 0.85rem;
-      background: #f9fafb;
-    }
-
-    .cover-item {
-      padding: 4px 0;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .cover-item:last-child {
-      border-bottom: none;
-    }
-
-    .cover-item-header {
-      font-weight: 600;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 1px 6px;
-      border-radius: 999px;
-      font-size: 0.7rem;
-      background: #e5e7eb;
-      margin-left: 4px;
-    }
-
-    /* Small phones */
-    @media (max-width: 480px) {
-      body {
-        padding: 8px;
-      }
-
-      h1 {
-        font-size: 1.1rem;
-      }
-
-      .card {
-        padding: 12px;
-      }
-
-      form {
-        grid-template-columns: 1fr;
-      }
-
-      table {
-        font-size: 0.75rem;
-        min-width: 520px;
-      }
-    }
-
-    /* Tablets */
-    @media (max-width: 768px) {
-      .row {
-        flex-direction: column;
-      }
-
-      .row > .col {
-        flex: 1 1 100%;
-      }
-    }
-  </style>
-</head>
-<body>
-<div class="container">
-  <h1>Mobile Cover Rack Manager</h1>
-
-  <!-- Add / Update form -->
-  <div class="card">
-    <h2>Add / Update Cover</h2>
-    <form id="cover-form">
-      <div>
-        <label for="model">Mobile Model Name</label>
-        <input type="text" id="model" required placeholder="Redmi Note 13" />
-      </div>
-      <div>
-        <label for="row">Row (1–5)</label>
-        <input type="number" id="row" min="1" max="5" required />
-      </div>
-      <div>
-        <label for="col">Column (1–12)</label>
-        <input type="number" id="col" min="1" max="12" required />
-      </div>
-      <div>
-        <label for="qty">Quantity</label>
-        <input type="number" id="qty" min="1" required />
-      </div>
-      <div>
-        <button type="submit" class="btn-primary btn-block">Save / Update</button>
-      </div>
-    </form>
-    <div id="form-message" class="message"></div>
-  </div>
-
-  <!-- Search & Delete -->
-  <div class="row">
-    <div class="col">
-      <div class="card">
-        <h2>Search Cover</h2>
-        <form id="search-form">
-          <div style="display:flex; gap:8px; align-items:flex-end;">
-            <div style="flex:1;">
-              <label for="search-model">Model Name</label>
-              <input type="text" id="search-model" placeholder="Enter model to search" />
+                    <div class="hidden md:flex space-x-8 items-center font-medium text-sm uppercase tracking-wide">
+                        <a href="#home" class="hover:text-yellow-600 transition">Home</a>
+                        <a href="#rooms" class="hover:text-yellow-600 transition">Rooms</a>
+                        <a href="#facilities" class="hover:text-yellow-600 transition">Facilities</a>
+                        <a href="#pricing" class="hover:text-yellow-600 transition">Pricing</a>
+                        <a href="#gallery" class="hover:text-yellow-600 transition">Gallery</a>
+                        <a href="#contact" class="hover:text-yellow-600 transition">Contact</a>
+                        <a href="tel:9712959111" class="btn-gold text-white px-6 py-2 rounded-full">Call Now</a>
+                    </div>
+                </div>
             </div>
-            <div style="width:120px;">
-              <button type="submit" class="btn-secondary btn-block">Search</button>
-            </div>
-          </div>
-        </form>
-        <div id="search-result" class="message"></div>
-      </div>
-    </div>
+        </nav>
 
-    <div class="col">
-      <div class="card">
-        <h2>Delete Cover</h2>
-        <form id="delete-form">
-          <div style="display:flex; gap:8px; align-items:flex-end;">
-            <div style="flex:1;">
-              <label for="delete-model">Model Name</label>
-              <input type="text" id="delete-model" placeholder="Model to delete" />
+        <section id="home" class="hero-overlay h-screen flex items-center justify-center text-center text-white px-4">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-5xl md:text-7xl mb-4">The Campus Prime PG and Hostel</h1>
+                <p class="text-xl md:text-2xl mb-8 font-light italic">Premium Fully Furnished PG Rooms in Sector 28,
+                    Gandhinagar</p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="#contact"
+                        class="btn-gold px-10 py-4 rounded-md text-lg font-semibold uppercase tracking-wider">Book a
+                        Visit</a>
+                    <a href="https://wa.me/919712959111"
+                        class="bg-white text-black px-10 py-4 rounded-md text-lg font-semibold uppercase tracking-wider hover:bg-gray-200 transition">WhatsApp
+                        Now</a>
+                </div>
             </div>
-            <div style="width:120px;">
-              <button type="submit" class="btn-danger btn-block">Delete</button>
-            </div>
-          </div>
-        </form>
-        <div id="delete-message" class="message"></div>
-      </div>
-    </div>
-  </div>
+        </section>
 
-  <!-- Rack grid + list -->
-  <div class="row">
-    <div class="col">
-      <div class="card">
-        <h2>Rack (5 × 12)</h2>
-        <div class="rack-wrapper">
-          <table id="rack-table">
-            <thead>
-            <tr>
-              <th>Row Col</th>
-              <th>1</th>
-              <th>2</th>
-              <th>3</th>
-              <th>4</th>
-              <th>5</th>
-              <th>6</th>
-              <th>7</th>
-              <th>8</th>
-              <th>9</th>
-              <th>10</th>
-              <th>11</th>
-              <th>12</th>
-            </tr>
-            </thead>
-            <tbody id="rack-body">
-            </tbody>
-          </table>
+        <section id="rooms" class="py-20 max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl text-gray-800 mb-2">Luxury Accommodations</h2>
+                <div class="w-24 h-1 bg-yellow-600 mx-auto mb-4"></div>
+                <p class="text-gray-500">Fully furnished rooms with attached washrooms. Available in AC and Non-AC.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="room-card bg-white rounded-xl shadow-lg overflow-hidden group" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&q=80"
+                            alt="Single" class="room-img w-full h-full object-cover transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl mb-2">Single Occupancy</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Perfect for those seeking privacy and focused study
+                            environments.</p>
+                        <ul class="text-sm text-gray-500 mb-6 space-y-2">
+                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>Attached Washroom</li>
+                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>AC/Non-AC Options</li>
+                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>Luxury Bedding</li>
+                        </ul>
+                        <a href="#contact"
+                            class="block text-center border border-yellow-600 text-yellow-600 py-2 rounded hover:bg-yellow-600 hover:text-white transition">Inquire
+                            Now</a>
+                    </div>
+                </div>
+                <div class="room-card bg-white rounded-xl shadow-lg overflow-hidden group" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="overflow-hidden h-64">
+                        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80"
+                            alt="Double" class="room-img w-full h-full object-cover transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl mb-2">Double Sharing</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Spacious shared living with modern aesthetics and comfort.</p>
+                        <ul class="text-sm text-gray-500 mb-6 space-y-2">
+                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>Attached Washroom</li>
+                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>Separate Wardrobes</li>
+                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>Shared Workspace</li>
+                        </ul>
+                        <a href="#contact"
+                            class="block text-center border border-yellow-600 text-yellow-600 py-2 rounded hover:bg-yellow-600 hover:text-white transition">Inquire
+                            Now</a>
+                    </div>
+                </div>
+                <div class="room-card bg-white rounded-xl shadow-lg overflow-hidden group" data-aos="fade-up"
+                    data-aos-delay="300">
+                    <div class="overflow-hidden h-64">
+                        <img src="WhatsApp Image 2026-04-05 at 9.28.22 PM (1).jpeg"
+                            alt="Triple" class="room-img w-full h-full object-cover transition-transform duration-500">
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl mb-2">Triple Sharing</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Economical luxury with all essential amenities and space.</p>
+                        <ul class="text-sm text-gray-500 mb-6 space-y-2">
+                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>Attached Washroom</li>
+                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>Common Area Access</li>
+                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>Daily Housekeeping</li>
+                        </ul>
+                        <a href="#contact"
+                            class="block text-center border border-yellow-600 text-yellow-600 py-2 rounded hover:bg-yellow-600 hover:text-white transition">Inquire
+                            Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="facilities" class="bg-white py-20">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl text-gray-800 mb-2">World Class Facilities</h2>
+                    <div class="w-24 h-1 bg-yellow-600 mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center">
+                    <div class="p-6" data-aos="zoom-in" data-aos-delay="50">
+                        <i class="fas fa-wifi text-3xl text-yellow-600 mb-4"></i>
+                        <p class="font-medium">High-Speed WiFi</p>
+                    </div>
+                    <div class="p-6" data-aos="zoom-in" data-aos-delay="100">
+                        <i class="fas fa-snowflake text-3xl text-yellow-600 mb-4"></i>
+                        <p class="font-medium">AC/Non-AC</p>
+                    </div>
+                    <div class="p-6" data-aos="zoom-in" data-aos-delay="150">
+                        <i class="fas fa-shirt text-3xl text-yellow-600 mb-4"></i>
+                        <p class="font-medium">Laundry Service</p>
+                    </div>
+                    <div class="p-6" data-aos="zoom-in" data-aos-delay="200">
+                        <i class="fas fa-parking text-3xl text-yellow-600 mb-4"></i>
+                        <p class="font-medium">Secure Parking</p>
+                    </div>
+                    <div class="p-6" data-aos="zoom-in" data-aos-delay="250">
+                        <i class="fas fa-utensils text-3xl text-yellow-600 mb-4"></i>
+                        <p class="font-medium">Two Time Meals</p>
+                    </div>
+                    <div class="p-6" data-aos="zoom-in" data-aos-delay="300">
+                        <i class="fas fa-mug-saucer text-3xl text-yellow-600 mb-4"></i>
+                        <p class="font-medium">Daily Breakfast</p>
+                    </div>
+                    <div class="p-6" data-aos="zoom-in" data-aos-delay="350">
+                        <i class="fas fa-couch text-3xl text-yellow-600 mb-4"></i>
+                        <p class="font-medium">Fully Furnished</p>
+                    </div>
+                    <div class="p-6" data-aos="zoom-in" data-aos-delay="400">
+                        <i class="fas fa-bath text-3xl text-yellow-600 mb-4"></i>
+                        <p class="font-medium">Attached Bath</p>
+                    </div>
+                    <div class="p-6" data-aos="zoom-in" data-aos-delay="450">
+                        <i class="fas fa-video text-3xl text-yellow-600 mb-4"></i>
+                        <p class="font-medium">CCTV Security</p>
+                    </div>
+                    <div class="p-6" data-aos="zoom-in" data-aos-delay="500">
+                        <i class="fas fa-broom text-3xl text-yellow-600 mb-4"></i>
+                        <p class="font-medium">Housekeeping</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="py-20 max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl text-gray-800 mb-10 serif" data-aos="fade-up">Exclusive Membership</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-2xl shadow-xl border-t-4 border-yellow-600" data-aos="fade-up">
+                    <h3 class="text-xl font-bold mb-4 uppercase">Standard</h3>
+                    <p class="text-4xl font-light text-gray-800 mb-6 italic">Contact for Pricing</p>
+                    <hr class="mb-6">
+                    <p class="text-gray-500 mb-8">Triple Sharing Options</p>
+                    <a href="tel:9712959111" class="btn-gold text-white px-8 py-3 rounded-md w-full block">Call for
+                        Details</a>
+                </div>
+                <div class="bg-gray-900 text-white p-10 rounded-2xl shadow-2xl transform md:scale-110 z-10"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <span class="bg-yellow-600 text-xs px-3 py-1 rounded-full uppercase tracking-tighter">Recommended</span>
+                    <h3 class="text-xl font-bold my-4 uppercase">Executive</h3>
+                    <p class="text-4xl font-light text-white mb-6 italic">Contact for Pricing</p>
+                    <hr class="opacity-20 mb-6">
+                    <p class="text-gray-400 mb-8">Double Sharing with AC</p>
+                    <a href="tel:9712959111" class="btn-gold text-white px-8 py-3 rounded-md w-full block">Call for
+                        Details</a>
+                </div>
+                <div class="bg-white p-10 rounded-2xl shadow-xl border-t-4 border-yellow-600" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <h3 class="text-xl font-bold mb-4 uppercase">Premium</h3>
+                    <p class="text-4xl font-light text-gray-800 mb-6 italic">Contact for Pricing</p>
+                    <hr class="mb-6">
+                    <p class="text-gray-500 mb-8">Single Occupancy Luxury</p>
+                    <a href="tel:9712959111" class="btn-gold text-white px-8 py-3 rounded-md w-full block">Call for
+                        Details</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-5xl serif text-gray-900 mb-4 italic">Our Living Spaces</h2>
+            <p class="text-gray-500 uppercase tracking-widest text-sm">Curated Interiors & Modern Elegance</p>
         </div>
-      </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            
+            <img src="WhatsApp Image 2026-04-05 at 9.28.21 PM (1).jpeg" 
+                 onerror="this.src='https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80'" 
+                 class="md:col-span-2 md:row-span-2 w-full h-[540px] object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
+                 data-aos="zoom-in" alt="Living Space 1">
+
+            <img src="WhatsApp Image 2026-04-05 at 9.28.21 PM.jpeg" 
+                 onerror="this.src='https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&q=80'" 
+                 class="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
+                 data-aos="zoom-in" alt="Living Space 2">
+
+            <img src="WhatsApp Image 2026-04-05 at 9.28.22 PM (1).jpeg" 
+                 onerror="this.src='https://images.unsplash.com/photo-1505691938895-1758d7eaa511?auto=format&fit=crop&q=80'" 
+                 class="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
+                 data-aos="zoom-in" alt="Living Space 3">
+
+            <img src="WhatsApp Image 2026-04-05 at 9.28.22 PM (2).jpeg" 
+                 onerror="this.src='https://images.unsplash.com/photo-1512918766671-ad651ec307f0?auto=format&fit=crop&q=80'" 
+                 class="md:row-span-2 w-full h-full min-h-[300px] object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
+                 data-aos="zoom-in" alt="Living Space 4">
+
+            <img src="WhatsApp Image 2026-04-05 at 9.28.22 PM.jpeg" 
+                 onerror="this.src='https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80'" 
+                 class="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
+                 data-aos="zoom-in" alt="Living Space 5">
+
+            <img src="WhatsApp Image 2026-04-05 at 9.28.23 PM (1).jpeg" 
+                 onerror="this.src='https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80'" 
+                 class="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
+                 data-aos="zoom-in" alt="Living Space 6">
+
+            <img src="WhatsApp Image 2026-04-05 at 9.28.24 PM (1).jpeg" 
+                 onerror="this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80'" 
+                 class="md:col-span-2 w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
+                 data-aos="zoom-in" alt="Living Space 7">
+
+            <img src="WhatsApp Image 2026-04-05 at 9.28.23 PM (2).jpeg" 
+                 onerror="this.src='https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80'" 
+                 class="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
+                 data-aos="zoom-in" alt="Living Space 8">
+
+            <img src="WhatsApp Image 2026-04-05 at 9.28.23 PM.jpeg" 
+                 onerror="this.src='https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&q=80'" 
+                 class="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
+                 data-aos="zoom-in" alt="Living Space 9">
+
+            <img src="WhatsApp Image 2026-04-05 at 9.28.24 PM.jpeg" 
+                 onerror="this.src='https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80'" 
+                 class="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
+                 data-aos="zoom-in" alt="Living Space 10">
+
+            <img src="gallery11.jpg" 
+                 onerror="this.src='https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80'" 
+                 class="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
+                 data-aos="zoom-in" alt="Living Space 11">
+
+        </div>
     </div>
+</section>
 
-    <div class="col">
-      <div class="card">
-        <h2>All Covers</h2>
-        <div id="cover-list" class="cover-list"></div>
-      </div>
-    </div>
-  </div>
-</div>
+        <section id="contact" class="py-20 max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div data-aos="fade-right">
+                    <h2 class="text-4xl mb-6 serif">Visit Us</h2>
+                    <div class="rounded-xl overflow-hidden shadow-2xl mb-8">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14668.614695027588!2d72.6517855!3d23.2374944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2b93663a8a3f%3A0x67396a80277864f1!2sSector%2028%2C%20Gandhinagar%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000"
+                            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="flex items-center text-lg"><i class="fas fa-location-dot text-yellow-600 mr-4"></i> Sector
+                            28, Gandhinagar, Gujarat</p>
+                        <p class="flex items-center text-lg"><i class="fas fa-phone text-yellow-600 mr-4"></i> +91
+                            9712959111</p>
+                        <p class="flex items-center text-lg"><i class="fas fa-envelope text-yellow-600 mr-4"></i>
+                            contact@campusprime.com</p>
+                    </div>
+                </div>
 
-<script>
-  const ROWS = 5;
-  const COLS = 12;
-  const STORAGE_KEY = "coversData";
+                <div class="bg-white p-8 rounded-2xl shadow-2xl" data-aos="fade-left">
+                    <h3 class="text-2xl mb-6 serif">Book Your Stay</h3>
+                    <form id="inquiryForm" class="space-y-4">
+                        <div>
+                            <input type="text" id="name" placeholder="Full Name"
+                                class="w-full p-4 bg-gray-50 border-none rounded-md focus:ring-2 focus:ring-yellow-600 outline-none"
+                                required>
+                        </div>
+                        <div>
+                            <input type="tel" id="phone" placeholder="Phone Number"
+                                class="w-full p-4 bg-gray-50 border-none rounded-md focus:ring-2 focus:ring-yellow-600 outline-none"
+                                required>
+                        </div>
+                        <div>
+                            <select id="roomType"
+                                class="w-full p-4 bg-gray-50 border-none rounded-md focus:ring-2 focus:ring-yellow-600 outline-none">
+                                <option>Single Occupancy</option>
+                                <option>Double Sharing</option>
+                                <option>Triple Sharing</option>
+                            </select>
+                        </div>
+                        <div>
+                            <textarea id="message" rows="4" placeholder="Message"
+                                class="w-full p-4 bg-gray-50 border-none rounded-md focus:ring-2 focus:ring-yellow-600 outline-none"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full btn-gold text-white py-4 rounded-md font-bold uppercase tracking-widest">Send
+                            Inquiry</button>
 
-  function loadCovers() {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
-    try {
-      const parsed = JSON.parse(raw);
-      return Array.isArray(parsed) ? parsed : [];
-    } catch (e) {
-      return [];
-    }
-  }
-
-  function saveCovers(covers) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(covers));
-  }
-
-  const rackBody = document.getElementById("rack-body");
-  const coverListDiv = document.getElementById("cover-list");
-  const formMessage = document.getElementById("form-message");
-  const searchResult = document.getElementById("search-result");
-  const deleteMessage = document.getElementById("delete-message");
-
-  const coverForm = document.getElementById("cover-form");
-  const searchForm = document.getElementById("search-form");
-  const deleteForm = document.getElementById("delete-form");
-
-  const modelInput = document.getElementById("model");
-  const rowInput = document.getElementById("row");
-  const colInput = document.getElementById("col");
-  const qtyInput = document.getElementById("qty");
-  const searchModelInput = document.getElementById("search-model");
-  const deleteModelInput = document.getElementById("delete-model");
-
-  function renderRack(highlightKey) {
-    rackBody.innerHTML = "";
-    const covers = loadCovers();
-    const map = {};
-    covers.forEach(c => {
-      const key = c.row + "-" + c.col;
-      map[key] = c;
-    });
-
-    for (let r = 1; r <= ROWS; r++) {
-      const tr = document.createElement("tr");
-      const th = document.createElement("th");
-      th.textContent = "Row " + r;
-      tr.appendChild(th);
-
-      for (let c = 1; c <= COLS; c++) {
-        const td = document.createElement("td");
-        const key = r + "-" + c;
-        const cover = map[key];
-
-        if (cover) {
-          td.classList.add("cell-has-cover");
-          td.innerHTML =
-            `<div><strong>${cover.model}</strong></div>` +
-            `<div>Qty: ${cover.qty}</div>`;
-        } else {
-          td.classList.add("cell-empty");
-          td.textContent = "Empty";
-        }
-
-        if (highlightKey && key === highlightKey) {
-          td.classList.add("cell-highlight");
-        }
-
-        tr.appendChild(td);
-      }
-      rackBody.appendChild(tr);
-    }
-  }
-
-  function renderCoverList() {
-    const covers = loadCovers();
-    if (covers.length === 0) {
-      coverListDiv.innerHTML = "<div>No covers stored.</div>";
-      return;
-    }
-
-    covers.sort((a, b) => a.row - b.row || a.col - b.col);
-
-    coverListDiv.innerHTML = covers
-      .map(
-        c =>
-          `<div class="cover-item">
-            <div class="cover-item-header">${c.model}
-              <span class="tag">Row ${c.row}, Col ${c.col}</span>
+                        <div class="grid grid-cols-2 gap-4 mt-4">
+                            <a href="https://wa.me/919712959111"
+                                class="flex items-center justify-center bg-green-600 text-white py-3 rounded-md hover:bg-green-700 transition">
+                                <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                            </a>
+                            <a href="tel:9712959111"
+                                class="flex items-center justify-center bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition">
+                                <i class="fas fa-phone mr-2"></i> Call Now
+                            </a>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div>Qty: ${c.qty}</div>
-          </div>`
-      )
-      .join("");
-  }
+        </section>
 
-  coverForm.addEventListener("submit", e => {
-    e.preventDefault();
-    formMessage.textContent = "";
-    formMessage.className = "message";
+        <footer class="bg-gray-900 text-white py-12 text-center">
+            <p class="serif text-2xl mb-4">The Campus Prime</p>
+            <p class="text-gray-500 mb-6">Experience Luxury Student & Executive Living in Gandhinagar.</p>
+            <div class="flex justify-center space-x-6 mb-8 text-xl">
+                <a href="#" class="hover:text-yellow-600"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-yellow-600"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="hover:text-yellow-600"><i class="fab fa-google"></i></a>
+            </div>
+            <p class="text-xs text-gray-600 uppercase tracking-widest">&copy; 2026 The Campus Prime PG. All rights reserved.
+            </p>
+        </footer>
 
-    const model = modelInput.value.trim();
-    const row = Number(rowInput.value);
-    const col = Number(colInput.value);
-    const qty = Number(qtyInput.value);
+        <a href="https://wa.me/919712959111" class="float-btn bg-green-500 right-5 md:hidden">
+            <i class="fab fa-whatsapp text-2xl mr-2"></i> WhatsApp
+        </a>
+        <a href="tel:9712959111" class="float-btn bg-yellow-600 left-5 md:hidden">
+            <i class="fas fa-phone text-xl mr-2"></i> Call
+        </a>
 
-    if (!model) {
-      setMessage(formMessage, "Model name is required.", "error");
-      return;
-    }
-    if (!Number.isInteger(row) || row < 1 || row > ROWS) {
-      setMessage(formMessage, "Row must be between 1 and " + ROWS + ".", "error");
-      return;
-    }
-    if (!Number.isInteger(col) || col < 1 || col > COLS) {
-      setMessage(formMessage, "Column must be between 1 and " + COLS + ".", "error");
-      return;
-    }
-    if (!Number.isInteger(qty) || qty <= 0) {
-      setMessage(formMessage, "Quantity must be a positive number.", "error");
-      return;
-    }
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            // Initialize Animations
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
 
-    const covers = loadCovers();
-    const index = covers.findIndex(
-      c => c.model.toLowerCase() === model.toLowerCase()
-    );
+            // Navbar Scroll Effect
+            window.addEventListener('scroll', function () {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 50) {
+                    nav.classList.add('py-2', 'shadow-xl');
+                } else {
+                    nav.classList.remove('py-2', 'shadow-xl');
+                }
+            });
 
-    if (index >= 0) {
-      covers[index].row = row;
-      covers[index].col = col;
-      covers[index].qty = qty;
-      setMessage(formMessage, "Cover updated successfully.", "success");
-    } else {
-      covers.push({ model, row, col, qty });
-      setMessage(formMessage, "Cover added successfully.", "success");
-    }
+            // Form Validation & Logic
+            document.getElementById('inquiryForm').addEventListener('submit', function (e) {
+                e.preventDefault();
 
-    saveCovers(covers);
-    renderRack(row + "-" + col);
-    renderCoverList();
-    coverForm.reset();
-  });
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                const room = document.getElementById('roomType').value;
 
-  searchForm.addEventListener("submit", e => {
-    e.preventDefault();
-    searchResult.textContent = "";
-    searchResult.className = "message";
+                if (name.length < 3) {
+                    alert("Please enter a valid name.");
+                    return;
+                }
 
-    const query = searchModelInput.value.trim();
-    if (!query) {
-      setMessage(searchResult, "Please enter a model name to search.", "error");
-      renderRack();
-      return;
-    }
+                if (!/^\d{10}$/.test(phone.replace(/\s/g, ""))) {
+                    alert("Please enter a valid 10-digit phone number.");
+                    return;
+                }
 
-    const covers = loadCovers();
-    const match = covers.find(
-      c => c.model.toLowerCase() === query.toLowerCase()
-    );
+                // Simple Success Message
+                alert(`Thank you ${name}! Your inquiry for ${room} has been received. We will contact you at ${phone} shortly.`);
+                this.reset();
+            });
 
-    if (!match) {
-      setMessage(searchResult, "Cover not available.", "error");
-      renderRack();
-      return;
-    }
+            // Smooth Scrolling for all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        </script>
+    </body>
 
-    setMessage(
-      searchResult,
-      `Model: ${match.model} | Qty: ${match.qty} | Location: Row ${match.row}, Column ${match.col}`,
-      "success"
-    );
-    const highlightKey = match.row + "-" + match.col;
-    renderRack(highlightKey);
-  });
-
-  deleteForm.addEventListener("submit", e => {
-    e.preventDefault();
-    deleteMessage.textContent = "";
-    deleteMessage.className = "message";
-
-    const model = deleteModelInput.value.trim();
-    if (!model) {
-      setMessage(deleteMessage, "Please enter a model name to delete.", "error");
-      return;
-    }
-
-    const covers = loadCovers();
-    const before = covers.length;
-    const filtered = covers.filter(
-      c => c.model.toLowerCase() !== model.toLowerCase()
-    );
-
-    if (filtered.length === before) {
-      setMessage(deleteMessage, "Model not found.", "error");
-    } else {
-      saveCovers(filtered);
-      renderRack();
-      renderCoverList();
-      setMessage(deleteMessage, "Cover deleted successfully.", "success");
-      deleteForm.reset();
-    }
-  });
-
-  function setMessage(el, text, type) {
-    el.textContent = text;
-    el.className = "message " + (type || "");
-  }
-
-  renderRack();
-  renderCoverList();
-</script>
-</body>
-</html>
+    </html>
