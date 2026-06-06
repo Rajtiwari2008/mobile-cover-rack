@@ -1,495 +1,644 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>The Campus Prime PG and Hostel | Luxury Living in Gandhinagar</title>
-
-        <link
-            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap"
-            rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-        <style>
-            :root {
-                --primary-gold: #D4AF37;
-                --dark-bg: #1a1a1a;
-                --soft-beige: #f9f7f2;
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hotel Om Balaji | Luxury &amp; Trusted Hospitality in Naroda</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config Verbatim -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#181c1e",
+                    "on-primary-container": "#758dd5",
+                    "primary": "#00113a",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#e8e8e8",
+                    "on-surface-variant": "#444650",
+                    "surface-container": "#eeeeee",
+                    "surface-dim": "#dadada",
+                    "surface-bright": "#f9f9f9",
+                    "background": "#f9f9f9",
+                    "secondary-fixed": "#ffe088",
+                    "surface-variant": "#e2e2e2",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2f3131",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-background": "#1a1c1c",
+                    "surface-container-low": "#f3f3f4",
+                    "on-error-container": "#93000a",
+                    "outline-variant": "#c5c6d2",
+                    "primary-container": "#002366",
+                    "outline": "#757682",
+                    "tertiary-container": "#25292b",
+                    "tertiary": "#101517",
+                    "tertiary-fixed": "#e0e3e6",
+                    "on-primary-fixed": "#00174a",
+                    "tertiary-fixed-dim": "#c3c7ca",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#e9c349",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-tertiary-container": "#8c9093",
+                    "on-primary-fixed-variant": "#2a4386",
+                    "error": "#ba1a1a",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "on-secondary-container": "#745c00",
+                    "primary-fixed-dim": "#b3c5ff",
+                    "secondary-container": "#fed65b",
+                    "primary-fixed": "#dbe1ff",
+                    "on-tertiary-fixed-variant": "#43474a",
+                    "inverse-primary": "#b3c5ff",
+                    "secondary": "#735c00",
+                    "on-secondary-fixed-variant": "#574500",
+                    "surface": "#f9f9f9",
+                    "on-secondary-fixed": "#241a00",
+                    "surface-tint": "#435b9f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-mobile": "64px",
+                    "container-max": "1280px",
+                    "section-desktop": "120px",
+                    "gutter": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-display": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "headline-display": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}]
             }
-
-            body {
-                font-family: 'Poppins', sans-serif;
-                scroll-behavior: smooth;
-                background-color: var(--soft-beige);
-                color: #333;
-            }
-
-            h1,
-            h2,
-            h3,
-            .serif {
-                font-family: 'Playfair Display', serif;
-            }
-
-            /* Glassmorphism Navbar */
-            .nav-glass {
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(10px);
-                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            }
-
-            /* Hero Section Styling */
-            .hero-overlay {
-                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80');
-                background-size: cover;
-                background-position: center;
-                background-attachment: fixed;
-            }
-
-            /* Premium Transitions */
-            .btn-gold {
-                background-color: var(--primary-gold);
-                transition: all 0.4s ease;
-            }
-
-            .btn-gold:hover {
-                background-color: #b8962d;
-                transform: translateY(-2px);
-                box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
-            }
-
-            .room-card:hover .room-img {
-                transform: scale(1.1);
-            }
-
-            .gallery-item {
-                overflow: hidden;
-                border-radius: 8px;
-            }
-
-            .gallery-item img {
-                transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-
-            .gallery-item:hover img {
-                transform: scale(1.15);
-            }
-
-            /* Floating Buttons */
-            .float-btn {
-                position: fixed;
-                bottom: 20px;
-                z-index: 1000;
-                padding: 12px 20px;
-                border-radius: 50px;
-                display: flex;
-                align-items: center;
-                color: white;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            }
-        </style>
-    </head>
-
-    <body>
-
-        <nav class="nav-glass fixed w-full z-50 transition-all duration-300">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between h-20 items-center">
-                    <div class="flex-shrink-0 flex flex-col">
-                        <span class="text-xl font-bold tracking-widest text-gray-800 serif">THE CAMPUS PRIME</span>
-                        <span class="text-xs uppercase tracking-widest text-yellow-600 font-semibold">PG & Hostel</span>
-                    </div>
-
-                    <div class="hidden md:flex space-x-8 items-center font-medium text-sm uppercase tracking-wide">
-                        <a href="#home" class="hover:text-yellow-600 transition">Home</a>
-                        <a href="#rooms" class="hover:text-yellow-600 transition">Rooms</a>
-                        <a href="#facilities" class="hover:text-yellow-600 transition">Facilities</a>
-                        <a href="#pricing" class="hover:text-yellow-600 transition">Pricing</a>
-                        <a href="#gallery" class="hover:text-yellow-600 transition">Gallery</a>
-                        <a href="#contact" class="hover:text-yellow-600 transition">Contact</a>
-                        <a href="tel:9712959111" class="btn-gold text-white px-6 py-2 rounded-full">Call Now</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-
-        <section id="home" class="hero-overlay h-screen flex items-center justify-center text-center text-white px-4">
-            <div data-aos="fade-up" data-aos-duration="1000">
-                <h1 class="text-5xl md:text-7xl mb-4">The Campus Prime PG and Hostel</h1>
-                <p class="text-xl md:text-2xl mb-8 font-light italic">Premium Fully Furnished PG Rooms in Sector 28,
-                    Gandhinagar</p>
-                <div class="flex flex-col md:flex-row gap-4 justify-center">
-                    <a href="#contact"
-                        class="btn-gold px-10 py-4 rounded-md text-lg font-semibold uppercase tracking-wider">Book a
-                        Visit</a>
-                    <a href="https://wa.me/919712959111"
-                        class="bg-white text-black px-10 py-4 rounded-md text-lg font-semibold uppercase tracking-wider hover:bg-gray-200 transition">WhatsApp
-                        Now</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="rooms" class="py-20 max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl text-gray-800 mb-2">Luxury Accommodations</h2>
-                <div class="w-24 h-1 bg-yellow-600 mx-auto mb-4"></div>
-                <p class="text-gray-500">Fully furnished rooms with attached washrooms. Available in AC and Non-AC.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="room-card bg-white rounded-xl shadow-lg overflow-hidden group" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <div class="overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&q=80"
-                            alt="Single" class="room-img w-full h-full object-cover transition-transform duration-500">
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl mb-2">Single Occupancy</h3>
-                        <p class="text-gray-600 mb-4 text-sm">Perfect for those seeking privacy and focused study
-                            environments.</p>
-                        <ul class="text-sm text-gray-500 mb-6 space-y-2">
-                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>Attached Washroom</li>
-                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>AC/Non-AC Options</li>
-                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>Luxury Bedding</li>
-                        </ul>
-                        <a href="#contact"
-                            class="block text-center border border-yellow-600 text-yellow-600 py-2 rounded hover:bg-yellow-600 hover:text-white transition">Inquire
-                            Now</a>
-                    </div>
-                </div>
-                <div class="room-card bg-white rounded-xl shadow-lg overflow-hidden group" data-aos="fade-up"
-                    data-aos-delay="200">
-                    <div class="overflow-hidden h-64">
-                        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&q=80"
-                            alt="Double" class="room-img w-full h-full object-cover transition-transform duration-500">
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl mb-2">Double Sharing</h3>
-                        <p class="text-gray-600 mb-4 text-sm">Spacious shared living with modern aesthetics and comfort.</p>
-                        <ul class="text-sm text-gray-500 mb-6 space-y-2">
-                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>Attached Washroom</li>
-                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>Separate Wardrobes</li>
-                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>Shared Workspace</li>
-                        </ul>
-                        <a href="#contact"
-                            class="block text-center border border-yellow-600 text-yellow-600 py-2 rounded hover:bg-yellow-600 hover:text-white transition">Inquire
-                            Now</a>
-                    </div>
-                </div>
-                <div class="room-card bg-white rounded-xl shadow-lg overflow-hidden group" data-aos="fade-up"
-                    data-aos-delay="300">
-                    <div class="overflow-hidden h-64">
-                        <img src="WhatsApp Image 2026-04-05 at 9.28.22 PM (1).jpeg"
-                            alt="Triple" class="room-img w-full h-full object-cover transition-transform duration-500">
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl mb-2">Triple Sharing</h3>
-                        <p class="text-gray-600 mb-4 text-sm">Economical luxury with all essential amenities and space.</p>
-                        <ul class="text-sm text-gray-500 mb-6 space-y-2">
-                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>Attached Washroom</li>
-                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>Common Area Access</li>
-                            <li><i class="fas fa-check text-yellow-600 mr-2"></i>Daily Housekeeping</li>
-                        </ul>
-                        <a href="#contact"
-                            class="block text-center border border-yellow-600 text-yellow-600 py-2 rounded hover:bg-yellow-600 hover:text-white transition">Inquire
-                            Now</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="facilities" class="bg-white py-20">
-            <div class="max-w-7xl mx-auto px-4">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <h2 class="text-4xl text-gray-800 mb-2">World Class Facilities</h2>
-                    <div class="w-24 h-1 bg-yellow-600 mx-auto"></div>
-                </div>
-
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center">
-                    <div class="p-6" data-aos="zoom-in" data-aos-delay="50">
-                        <i class="fas fa-wifi text-3xl text-yellow-600 mb-4"></i>
-                        <p class="font-medium">High-Speed WiFi</p>
-                    </div>
-                    <div class="p-6" data-aos="zoom-in" data-aos-delay="100">
-                        <i class="fas fa-snowflake text-3xl text-yellow-600 mb-4"></i>
-                        <p class="font-medium">AC/Non-AC</p>
-                    </div>
-                    <div class="p-6" data-aos="zoom-in" data-aos-delay="150">
-                        <i class="fas fa-shirt text-3xl text-yellow-600 mb-4"></i>
-                        <p class="font-medium">Laundry Service</p>
-                    </div>
-                    <div class="p-6" data-aos="zoom-in" data-aos-delay="200">
-                        <i class="fas fa-parking text-3xl text-yellow-600 mb-4"></i>
-                        <p class="font-medium">Secure Parking</p>
-                    </div>
-                    <div class="p-6" data-aos="zoom-in" data-aos-delay="250">
-                        <i class="fas fa-utensils text-3xl text-yellow-600 mb-4"></i>
-                        <p class="font-medium">Two Time Meals</p>
-                    </div>
-                    <div class="p-6" data-aos="zoom-in" data-aos-delay="300">
-                        <i class="fas fa-mug-saucer text-3xl text-yellow-600 mb-4"></i>
-                        <p class="font-medium">Daily Breakfast</p>
-                    </div>
-                    <div class="p-6" data-aos="zoom-in" data-aos-delay="350">
-                        <i class="fas fa-couch text-3xl text-yellow-600 mb-4"></i>
-                        <p class="font-medium">Fully Furnished</p>
-                    </div>
-                    <div class="p-6" data-aos="zoom-in" data-aos-delay="400">
-                        <i class="fas fa-bath text-3xl text-yellow-600 mb-4"></i>
-                        <p class="font-medium">Attached Bath</p>
-                    </div>
-                    <div class="p-6" data-aos="zoom-in" data-aos-delay="450">
-                        <i class="fas fa-video text-3xl text-yellow-600 mb-4"></i>
-                        <p class="font-medium">CCTV Security</p>
-                    </div>
-                    <div class="p-6" data-aos="zoom-in" data-aos-delay="500">
-                        <i class="fas fa-broom text-3xl text-yellow-600 mb-4"></i>
-                        <p class="font-medium">Housekeeping</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="pricing" class="py-20 max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-4xl text-gray-800 mb-10 serif" data-aos="fade-up">Exclusive Membership</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-10 rounded-2xl shadow-xl border-t-4 border-yellow-600" data-aos="fade-up">
-                    <h3 class="text-xl font-bold mb-4 uppercase">Standard</h3>
-                    <p class="text-4xl font-light text-gray-800 mb-6 italic">Contact for Pricing</p>
-                    <hr class="mb-6">
-                    <p class="text-gray-500 mb-8">Triple Sharing Options</p>
-                    <a href="tel:9712959111" class="btn-gold text-white px-8 py-3 rounded-md w-full block">Call for
-                        Details</a>
-                </div>
-                <div class="bg-gray-900 text-white p-10 rounded-2xl shadow-2xl transform md:scale-110 z-10"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <span class="bg-yellow-600 text-xs px-3 py-1 rounded-full uppercase tracking-tighter">Recommended</span>
-                    <h3 class="text-xl font-bold my-4 uppercase">Executive</h3>
-                    <p class="text-4xl font-light text-white mb-6 italic">Contact for Pricing</p>
-                    <hr class="opacity-20 mb-6">
-                    <p class="text-gray-400 mb-8">Double Sharing with AC</p>
-                    <a href="tel:9712959111" class="btn-gold text-white px-8 py-3 rounded-md w-full block">Call for
-                        Details</a>
-                </div>
-                <div class="bg-white p-10 rounded-2xl shadow-xl border-t-4 border-yellow-600" data-aos="fade-up"
-                    data-aos-delay="200">
-                    <h3 class="text-xl font-bold mb-4 uppercase">Premium</h3>
-                    <p class="text-4xl font-light text-gray-800 mb-6 italic">Contact for Pricing</p>
-                    <hr class="mb-6">
-                    <p class="text-gray-500 mb-8">Single Occupancy Luxury</p>
-                    <a href="tel:9712959111" class="btn-gold text-white px-8 py-3 rounded-md w-full block">Call for
-                        Details</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="gallery" class="py-24 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-6">
-        
-        <div class="text-center mb-16" data-aos="fade-up">
-            <h2 class="text-5xl serif text-gray-900 mb-4 italic">Our Living Spaces</h2>
-            <p class="text-gray-500 uppercase tracking-widest text-sm">Curated Interiors & Modern Elegance</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            
-            <img src="WhatsApp Image 2026-04-05 at 9.28.21 PM (1).jpeg" 
-                 onerror="this.src='https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80'" 
-                 class="md:col-span-2 md:row-span-2 w-full h-[540px] object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
-                 data-aos="zoom-in" alt="Living Space 1">
-
-            <img src="WhatsApp Image 2026-04-05 at 9.28.21 PM.jpeg" 
-                 onerror="this.src='https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&q=80'" 
-                 class="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
-                 data-aos="zoom-in" alt="Living Space 2">
-
-            <img src="WhatsApp Image 2026-04-05 at 9.28.22 PM (1).jpeg" 
-                 onerror="this.src='https://images.unsplash.com/photo-1505691938895-1758d7eaa511?auto=format&fit=crop&q=80'" 
-                 class="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
-                 data-aos="zoom-in" alt="Living Space 3">
-
-            <img src="WhatsApp Image 2026-04-05 at 9.28.22 PM (2).jpeg" 
-                 onerror="this.src='https://images.unsplash.com/photo-1512918766671-ad651ec307f0?auto=format&fit=crop&q=80'" 
-                 class="md:row-span-2 w-full h-full min-h-[300px] object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
-                 data-aos="zoom-in" alt="Living Space 4">
-
-            <img src="WhatsApp Image 2026-04-05 at 9.28.22 PM.jpeg" 
-                 onerror="this.src='https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80'" 
-                 class="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
-                 data-aos="zoom-in" alt="Living Space 5">
-
-            <img src="WhatsApp Image 2026-04-05 at 9.28.23 PM (1).jpeg" 
-                 onerror="this.src='https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&q=80'" 
-                 class="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
-                 data-aos="zoom-in" alt="Living Space 6">
-
-            <img src="WhatsApp Image 2026-04-05 at 9.28.24 PM (1).jpeg" 
-                 onerror="this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80'" 
-                 class="md:col-span-2 w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
-                 data-aos="zoom-in" alt="Living Space 7">
-
-            <img src="WhatsApp Image 2026-04-05 at 9.28.23 PM (2).jpeg" 
-                 onerror="this.src='https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80'" 
-                 class="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
-                 data-aos="zoom-in" alt="Living Space 8">
-
-            <img src="WhatsApp Image 2026-04-05 at 9.28.23 PM.jpeg" 
-                 onerror="this.src='https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&q=80'" 
-                 class="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
-                 data-aos="zoom-in" alt="Living Space 9">
-
-            <img src="WhatsApp Image 2026-04-05 at 9.28.24 PM.jpeg" 
-                 onerror="this.src='https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80'" 
-                 class="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
-                 data-aos="zoom-in" alt="Living Space 10">
-
-            <img src="gallery11.jpg" 
-                 onerror="this.src='https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&q=80'" 
-                 class="w-full h-64 object-cover rounded-2xl shadow-md hover:shadow-xl transition-all duration-500 cursor-pointer" 
-                 data-aos="zoom-in" alt="Living Space 11">
-
-        </div>
-    </div>
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .text-gold { color: #D4AF37; }
+        .bg-gold { background-color: #D4AF37; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/20 shadow-sm transition-all duration-300">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md font-bold text-primary transition-transform hover:scale-105" href="#">Hotel Om Balaji</a>
+<!-- Desktop Nav -->
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-primary border-b-2 border-secondary-fixed pb-1 hover:opacity-80 transition-all duration-300" href="#rooms">Rooms</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="#services">Services</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="#about">About</a>
+<button class="bg-gold text-white px-6 py-2 rounded-lg font-label-md hover:scale-105 transition-transform">Book Now</button>
+</div>
+<!-- Mobile Toggle -->
+<button class="md:hidden text-primary p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-screen w-full flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Luxury Suite" class="w-full h-full object-cover" data-alt="A sprawling, ultra-luxury hotel suite interior with a plush king-sized bed, soft ambient lighting from designer lamps, and elegant navy blue and gold accents. The room is bathed in warm, cinematic light coming through large windows that reveal a tranquil city skyline at twilight. The aesthetic is highly professional, clean, and prestigious, aligning with a premium hospitality brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWdLb8N1bnLhupQQ1RcTsTPfTEslm91L1YkL5PaJRG6-Xk-BzLKXNldjVD5kiNbuT_-N4pvFmJ-V9DPO5yrvXJpy5VLKLPg7toSBoCmWvUAxTvBc4Icd6AkQCaa1gxveJgF0NY-IyX1RhBRIrTL3GW0WlXjiWmefDTt_z4hVVy-m32ge1oBPbmFvx_nsTuyBbSvrb8EsQOKjYQS1SkbgwtUxcql3ZKrOKNBDi1kyF4K9SwCxNFzgk0QqY6LsOG2Q_3-8i7wFM0"/>
+<div class="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-gutter w-full">
+<div class="max-w-2xl text-white">
+<h1 class="font-headline-display text-headline-display mb-6 animate-fade-in-up">Experience Comfort, Cleanliness &amp; Trusted Hospitality</h1>
+<p class="font-body-lg text-body-lg mb-8 text-white/90">Newly improved services tailored for your satisfaction in Naroda, Ahmedabad. Discover a sanctuary of peace and reliability.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-gold hover:bg-gold/90 text-on-primary px-8 py-4 rounded-xl font-label-md text-lg transition-all hover:scale-105 shadow-xl">
+                        Book Your Stay
+                    </button>
+<button class="backdrop-blur-md bg-white/10 border border-white/30 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-label-md text-lg transition-all">
+                        View Gallery
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<!-- Trust Badges -->
+<section class="relative z-20 -mt-16 max-w-container-max mx-auto px-gutter">
+<div class="bg-white p-8 rounded-2xl shadow-2xl flex flex-wrap justify-between items-center gap-8 border border-outline-variant/10">
+<div class="flex flex-col items-center text-center group">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">24/7 Reception</span>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">clean_hands</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Sanitized Rooms</span>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">family_restroom</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Family Friendly</span>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Secure Stay</span>
+</div>
+<div class="flex flex-col items-center text-center group">
+<div class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">train</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface">Near Station</span>
+</div>
+</div>
 </section>
-
-        <section id="contact" class="py-20 max-w-7xl mx-auto px-4">
-            <div class="grid lg:grid-cols-2 gap-16">
-                <div data-aos="fade-right">
-                    <h2 class="text-4xl mb-6 serif">Visit Us</h2>
-                    <div class="rounded-xl overflow-hidden shadow-2xl mb-8">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14668.614695027588!2d72.6517855!3d23.2374944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c2b93663a8a3f%3A0x67396a80277864f1!2sSector%2028%2C%20Gandhinagar%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000"
-                            width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
-                    <div class="space-y-4">
-                        <p class="flex items-center text-lg"><i class="fas fa-location-dot text-yellow-600 mr-4"></i> Sector
-                            28, Gandhinagar, Gujarat</p>
-                        <p class="flex items-center text-lg"><i class="fas fa-phone text-yellow-600 mr-4"></i> +91
-                            9712959111</p>
-                        <p class="flex items-center text-lg"><i class="fas fa-envelope text-yellow-600 mr-4"></i>
-                            contact@campusprime.com</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-2xl" data-aos="fade-left">
-                    <h3 class="text-2xl mb-6 serif">Book Your Stay</h3>
-                    <form id="inquiryForm" class="space-y-4">
-                        <div>
-                            <input type="text" id="name" placeholder="Full Name"
-                                class="w-full p-4 bg-gray-50 border-none rounded-md focus:ring-2 focus:ring-yellow-600 outline-none"
-                                required>
-                        </div>
-                        <div>
-                            <input type="tel" id="phone" placeholder="Phone Number"
-                                class="w-full p-4 bg-gray-50 border-none rounded-md focus:ring-2 focus:ring-yellow-600 outline-none"
-                                required>
-                        </div>
-                        <div>
-                            <select id="roomType"
-                                class="w-full p-4 bg-gray-50 border-none rounded-md focus:ring-2 focus:ring-yellow-600 outline-none">
-                                <option>Single Occupancy</option>
-                                <option>Double Sharing</option>
-                                <option>Triple Sharing</option>
-                            </select>
-                        </div>
-                        <div>
-                            <textarea id="message" rows="4" placeholder="Message"
-                                class="w-full p-4 bg-gray-50 border-none rounded-md focus:ring-2 focus:ring-yellow-600 outline-none"></textarea>
-                        </div>
-                        <button type="submit"
-                            class="w-full btn-gold text-white py-4 rounded-md font-bold uppercase tracking-widest">Send
-                            Inquiry</button>
-
-                        <div class="grid grid-cols-2 gap-4 mt-4">
-                            <a href="https://wa.me/919712959111"
-                                class="flex items-center justify-center bg-green-600 text-white py-3 rounded-md hover:bg-green-700 transition">
-                                <i class="fab fa-whatsapp mr-2"></i> WhatsApp
-                            </a>
-                            <a href="tel:9712959111"
-                                class="flex items-center justify-center bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition">
-                                <i class="fas fa-phone mr-2"></i> Call Now
-                            </a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <footer class="bg-gray-900 text-white py-12 text-center">
-            <p class="serif text-2xl mb-4">The Campus Prime</p>
-            <p class="text-gray-500 mb-6">Experience Luxury Student & Executive Living in Gandhinagar.</p>
-            <div class="flex justify-center space-x-6 mb-8 text-xl">
-                <a href="#" class="hover:text-yellow-600"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="hover:text-yellow-600"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="hover:text-yellow-600"><i class="fab fa-google"></i></a>
-            </div>
-            <p class="text-xs text-gray-600 uppercase tracking-widest">&copy; 2026 The Campus Prime PG. All rights reserved.
+<!-- About Section -->
+<section class="py-section-desktop px-gutter max-w-container-max mx-auto grid md:grid-cols-2 gap-16 items-center" id="about">
+<div class="relative">
+<div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+<img alt="Hotel Entrance" class="w-full h-full object-cover" data-alt="A grand luxury hotel entrance with polished marble floors reflecting soft, elegant lighting. Two professional, well-dressed staff members are welcoming a guest with a warm, polite gesture. The overall atmosphere is prestigious, serene, and ultra-clean, showcasing high-end service and architectural beauty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrV54CwRpfHDdKpZ2v2X_9FTeFfzGxaoVZG3MAFqfdKgBvZkRXiZeirZvQgXMUFoZ6z4I9zuOrp3ZIJE7FcKxrPFIKYS_FZeY12u8IatyTeMFn_3A6vc8qgDV-Ys8jvZWbY6O7e5nQQ75-0he1Q8pVJj71Z7jYzOy0ootBqpXyff63H1UWA6bIdVajFd37sn8IisQU-xVQEuSkv6vanOu36hwLxJaMl6mlW0kZJQEDkTyMd9ktEkyWSdJD4cVDZ3pVrpZgeoSx"/>
+</div>
+<div class="absolute -bottom-8 -right-8 bg-gold p-8 rounded-2xl shadow-xl hidden lg:block">
+<div class="text-white">
+<p class="text-4xl font-bold mb-1">15+</p>
+<p class="font-label-md">Years of Excellence</p>
+</div>
+</div>
+</div>
+<div>
+<span class="font-label-md text-primary tracking-widest uppercase mb-4 block">Our Legacy</span>
+<h2 class="font-headline-lg text-headline-lg mb-6">A New Standard of Excellence in Ahmedabad</h2>
+<p class="font-body-lg text-on-surface-variant mb-8 leading-relaxed">
+                At Hotel Om Balaji, we have redefined hospitality with a core focus on pristine cleanliness and unmatched value. Our newly upgraded facility in Naroda serves as a sanctuary for both business travelers and families seeking a reliable, high-end experience without compromise.
             </p>
-        </footer>
+<div class="space-y-4">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-gold">check_circle</span>
+<p class="font-body-md">Rigorous clinical-grade sanitization protocols for every room.</p>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-gold">check_circle</span>
+<p class="font-body-md">Strategically located just minutes from Naroda Railway Station.</p>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-gold">check_circle</span>
+<p class="font-body-md">Tailored guest services designed to exceed traditional expectations.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- "What's New?" Section -->
+<section class="bg-surface-container-low py-section-desktop">
+<div class="max-w-container-max mx-auto px-gutter text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4">What's New?</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">Discover our recent upgrades aimed at providing a safer, more comfortable environment for all our guests.</p>
+</div>
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Glassmorphism Cards -->
+<div class="glass-card p-8 rounded-3xl group hover:-translate-y-2 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">health_and_safety</span>
+<h3 class="font-headline-sm text-headline-sm mb-3">Enhanced Sanitization</h3>
+<p class="font-body-md text-on-surface-variant">Advanced UV-C cleaning and medical-grade disinfectants used for every guest turnover.</p>
+</div>
+<div class="glass-card p-8 rounded-3xl group hover:-translate-y-2 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">workspace_premium</span>
+<h3 class="font-headline-sm text-headline-sm mb-3">Staff Training</h3>
+<p class="font-body-md text-on-surface-variant">Our concierge and housekeeping team are newly certified in international hospitality standards.</p>
+</div>
+<div class="glass-card p-8 rounded-3xl group hover:-translate-y-2 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">privacy_tip</span>
+<h3 class="font-headline-sm text-headline-sm mb-3">Privacy First</h3>
+<p class="font-body-md text-on-surface-variant">Soundproof partitions and discreet service ensure your stay remains peaceful and private.</p>
+</div>
+<div class="glass-card p-8 rounded-3xl group hover:-translate-y-2 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">cleaning_services</span>
+<h3 class="font-headline-sm text-headline-sm mb-3">Elite Housekeeping</h3>
+<p class="font-body-md text-on-surface-variant">On-demand cleaning services via our new digital concierge system for zero-delay response.</p>
+</div>
+<div class="glass-card p-8 rounded-3xl group hover:-translate-y-2 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">room_service</span>
+<h3 class="font-headline-sm text-headline-sm mb-3">Express Service</h3>
+<p class="font-body-md text-on-surface-variant">Optimized logistics to ensure your requests are fulfilled within 10 minutes of ordering.</p>
+</div>
+<div class="glass-card p-8 rounded-3xl group hover:-translate-y-2 transition-transform duration-300">
+<span class="material-symbols-outlined text-4xl text-primary mb-6">restaurant</span>
+<h3 class="font-headline-sm text-headline-sm mb-3">Gourmet Quality</h3>
+<p class="font-body-md text-on-surface-variant">A refreshed menu featuring organic ingredients and local Ahmedabad delicacies.</p>
+</div>
+</div>
+</section>
+<!-- Rooms Section -->
+<section class="py-section-desktop max-w-container-max mx-auto px-gutter" id="rooms">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-headline-lg text-headline-lg mb-2">Our Accommodations</h2>
+<p class="font-body-lg text-on-surface-variant">Curated comfort for every type of traveler.</p>
+</div>
+<button class="text-primary font-label-md flex items-center gap-2 hover:gap-4 transition-all">
+                View All Rooms <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Room Card: Deluxe -->
+<div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-outline-variant/10 group">
+<div class="relative overflow-hidden h-64">
+<img alt="Deluxe Room" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A modern deluxe hotel room with a minimalist design, featuring a large bed with crisp white linens, a wooden accent wall, and elegant blue throw pillows. The lighting is soft and inviting, reflecting a tranquil and prestigious atmosphere suited for high-end hospitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt_kxWAovUzo36mQUwg-UDCzQDS3-aWWXv4qXz0Z9DTGVDOOe-lS4cQI4dyYbJ0yqyY4crFdXwqmwpXIv92SQTk-A4Ki5-T5O2LG6XlmvdhFOx45xhrhw_w2AvbRpG8P7VWn5idRCVnD3XtZRXVuG82CHn3_k5vMUSiNnYyj9S2RSgWBAl90pXX4QHRjGJ1_xnk8rk7NG6Fw0fDtsi-GoHi6QV_eIoG3hhng0KR1K4_TLu3wRS-q7w05AOBlFC24kSWwGGMgIL"/>
+<div class="absolute top-4 right-4 glass-card px-3 py-1 rounded-full font-label-md text-primary">₹2,500/night</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm mb-3">Deluxe Suite</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Perfect for solo business travelers or couples seeking a modern retreat.</p>
+<div class="flex gap-4 mb-6 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">wifi</span>
+<span class="material-symbols-outlined text-sm">ac_unit</span>
+<span class="material-symbols-outlined text-sm">tv</span>
+</div>
+<button class="w-full border border-primary text-primary py-3 rounded-lg font-label-md hover:bg-primary hover:text-white transition-colors">Book Now</button>
+</div>
+</div>
+<!-- Room Card: Executive -->
+<div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-outline-variant/10 group">
+<div class="relative overflow-hidden h-64">
+<img alt="Executive Room" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="An executive hotel room designed with a professional aesthetic, including a dedicated workspace, ergonomic chair, and luxury bedding. The color palette is composed of sophisticated navy blue and slate grey tones, illuminated by warm, high-quality lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqo8er4lRdiG8Xl1BqGirmU-dqT6F9mmPmDGN8937L5C3r-czbQ6eZ2dUABKyrd4DFR2SjmeMfsQ_b-UJzTiEwTDLmzOk5Ruw9sa-NOUiKytRgJ-MfeYQYA3FurI9NQduYUxjD2cz6XPucrBADNa-Ccp51PFvAuMezlHG-nlxX4xEK_l4ofsJHka4L2Fj2roWVlQ1OZ6gWDgEMItIjmKJPHH4_e8Dq08W_xKR3ZqbgBZJUjlGmOLvDW3DY2XYvW0EkUGF8nua_"/>
+<div class="absolute top-4 right-4 glass-card px-3 py-1 rounded-full font-label-md text-primary">₹3,800/night</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm mb-3">Executive Club</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Spacious layout with a dedicated workspace and premium amenities.</p>
+<div class="flex gap-4 mb-6 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">wifi</span>
+<span class="material-symbols-outlined text-sm">ac_unit</span>
+<span class="material-symbols-outlined text-sm">coffee</span>
+</div>
+<button class="w-full border border-primary text-primary py-3 rounded-lg font-label-md hover:bg-primary hover:text-white transition-colors">Book Now</button>
+</div>
+</div>
+<!-- Room Card: Family -->
+<div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-outline-variant/10 group">
+<div class="relative overflow-hidden h-64">
+<img alt="Family Room" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A large, family-oriented hotel room featuring two queen-sized beds, a separate sitting area, and bright, welcoming decor. The lighting is cheerful and natural, with gold accents highlighting the high-end finishes and spacious layout." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn1-yXhbZUsHFwTcldDxk1cbyUdOelrbYQUKDVFhwJlaFkl1fWlpn0mH21ip1Jfm3_EEMxDmHArgWNr-eD-0iNhqtmabo23RmpL-GHudQcW-l6p_-nfAYkt4oQMnvCuaagplZIEQ2MIZpz6VbAFuVdfNKF7ES58wX3q7lebT6qpP0zn_s1RS_Mtzu-9UN6FjZ-ByE0OxMCUnwdJoh99sFalIbksbAVxStK-VKnBxXIjZHu6vTQC1FWQvjhY9KUUGdg3lhNLCx6"/>
+<div class="absolute top-4 right-4 glass-card px-3 py-1 rounded-full font-label-md text-primary">₹5,500/night</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-sm text-headline-sm mb-3">Grand Family Suite</h3>
+<p class="font-body-md text-on-surface-variant mb-6">Ample space for 4-5 guests with interconnected room options.</p>
+<div class="flex gap-4 mb-6 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">wifi</span>
+<span class="material-symbols-outlined text-sm">ac_unit</span>
+<span class="material-symbols-outlined text-sm">kitchen</span>
+</div>
+<button class="w-full border border-primary text-primary py-3 rounded-lg font-label-md hover:bg-primary hover:text-white transition-colors">Book Now</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Guest Experience (Testimonial) -->
+<section class="bg-primary py-section-desktop text-white overflow-hidden">
+<div class="max-w-container-max mx-auto px-gutter relative">
+<span class="text-gold font-label-md block mb-4 uppercase text-center">Guest Voices</span>
+<h2 class="font-headline-lg text-headline-lg text-center mb-16">Stories of Excellence</h2>
+<div class="flex flex-col md:flex-row gap-8 items-center justify-center">
+<!-- Testimonial 1 -->
+<div class="bg-white/10 backdrop-blur-md p-10 rounded-3xl border border-white/10 max-w-md">
+<div class="flex gap-1 text-gold mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg italic mb-8">"The cleanliness at Om Balaji is truly exceptional. We stayed for 3 days and the staff was incredibly attentive. Being near the station was a huge plus for us."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container">
+<img alt="Guest Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a happy, well-groomed male guest smiling warmly. The photo has a soft-focus background of a luxury hotel lobby, with high-key lighting that emphasizes a clean and positive persona." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbs-DWiN0Eez5gf9gV3HbKwHSv_5I_tDndKG6U3qD6OtgKlLUIxugvdKvxJzRZD1F1x6UlZcibE2x50X-vDCWEJLJuVptDadvAxHd-vRm38L9-oRu7g1RjQCH49l2GEEVIoixDfhBwwjB5Fw840ESHruYHsmEvpSpgWTUMlcL6XvKuUYTQbuSiv5iUXdnFFWv09ugewUmjYngwiTWQ2JZhG2_dHK_adx39l856_aKxXOLABEi793Ve2YwO6V6gJwcMSuSWvZSM"/>
+</div>
+<div>
+<p class="font-bold">Rahul Sharma</p>
+<p class="text-white/60 text-sm">Corporate Traveler</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-white/10 backdrop-blur-md p-10 rounded-3xl border border-white/10 max-w-md hidden md:block">
+<div class="flex gap-1 text-gold mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-lg italic mb-8">"Perfect for family trips. The rooms are spacious and very well-maintained. The new sanitization protocols gave us total peace of mind during our stay."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container">
+<img alt="Guest Profile" class="w-full h-full object-cover" data-alt="A professional portrait of a confident and elegant female guest in a luxury setting. She is smiling naturally, with soft ambient light creating a premium and reliable atmosphere, reflecting satisfaction with high-end services." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpDfLa1aQj0VQ6sB8lkSER3qDIlMEIzTd3HV58m6FoidLuv36LoqIFWfspWX-im3neu2cWWjUCtGTl2IrIngifyB5Br8KDHVuKZBV1Ot4NQxMnkkUmf7eoUpkEYFXQ2PyLa7LClMHR5k8lSAV9e3gpYScigdfl6KmVhIb14uEVVVoGrT-k3-VlksQPeFGVH1VzKjgRoejVoaBLmewg9oA7Uy2tfAp-Ycqx-An7J8up_1X2u6xLXXX56ErVE7cnvKh8JDVcAVBP"/>
+</div>
+<div>
+<p class="font-bold">Priya Patel</p>
+<p class="text-white/60 text-sm">Family Vacationer</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="py-section-desktop max-w-container-max mx-auto px-gutter" id="services">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg mb-4">World-Class Services</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">Everything you need for a seamless and comfortable journey in Ahmedabad.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="flex flex-col items-center p-8 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-outline-variant/10">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">wifi</span>
+<p class="font-bold">High-Speed WiFi</p>
+</div>
+<div class="flex flex-col items-center p-8 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-outline-variant/10">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">ac_unit</span>
+<p class="font-bold">Central Air</p>
+</div>
+<div class="flex flex-col items-center p-8 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-outline-variant/10">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">hot_tub</span>
+<p class="font-bold">24/7 Hot Water</p>
+</div>
+<div class="flex flex-col items-center p-8 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-outline-variant/10">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">videocam</span>
+<p class="font-bold">CCTV Security</p>
+</div>
+<div class="flex flex-col items-center p-8 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-outline-variant/10">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">local_parking</span>
+<p class="font-bold">Private Parking</p>
+</div>
+<div class="flex flex-col items-center p-8 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-outline-variant/10">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">dry_cleaning</span>
+<p class="font-bold">Laundry Service</p>
+</div>
+<div class="flex flex-col items-center p-8 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-outline-variant/10">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">restaurant</span>
+<p class="font-bold">In-Room Dining</p>
+</div>
+<div class="flex flex-col items-center p-8 rounded-2xl hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-outline-variant/10">
+<span class="material-symbols-outlined text-4xl text-primary mb-4">power</span>
+<p class="font-bold">Power Backup</p>
+</div>
+</div>
+</section>
+<!-- Location Section -->
+<section class="py-section-desktop bg-surface-container">
+<div class="max-w-container-max mx-auto px-gutter grid md:grid-cols-2 gap-0 overflow-hidden rounded-[40px] shadow-2xl">
+<div class="bg-primary text-white p-12 md:p-20">
+<h2 class="font-headline-lg text-headline-lg mb-8">Strategic Location</h2>
+<div class="space-y-8">
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-gold">train</span>
+</div>
+<div>
+<h4 class="font-bold text-xl">Naroda Railway Station</h4>
+<p class="text-white/60">Only 5 minutes drive away.</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-gold">flight</span>
+</div>
+<div>
+<h4 class="font-bold text-xl">SVP International Airport</h4>
+<p class="text-white/60">A quick 20-minute transit.</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-gold">shopping_cart</span>
+</div>
+<div>
+<h4 class="font-bold text-xl">Shopping Hubs</h4>
+<p class="text-white/60">Walking distance to local markets and malls.</p>
+</div>
+</div>
+</div>
+<button class="mt-12 text-gold font-bold flex items-center gap-2 hover:gap-4 transition-all">
+                    Get Directions <span class="material-symbols-outlined">map</span>
+</button>
+</div>
+<div class="h-[400px] md:h-auto relative">
+<div class="absolute inset-0 bg-secondary-fixed/10"></div>
+<!-- Interactive Map Placeholder -->
+<div class="w-full h-full bg-surface-container-highest flex items-center justify-center">
+<div class="text-center p-8">
+<span class="material-symbols-outlined text-6xl text-primary/20 mb-4">location_on</span>
+<p class="font-label-md text-on-surface-variant">Interactive Map View</p>
+<p class="text-sm opacity-50">Naroda, Ahmedabad, Gujarat</p>
+<div class="mt-4" data-location="Ahmedabad, India" style=""></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-section-desktop max-w-3xl mx-auto px-gutter">
+<h2 class="font-headline-lg text-headline-lg text-center mb-12">Frequently Asked Questions</h2>
+<div class="space-y-4">
+<details class="group bg-white rounded-2xl shadow-sm border border-outline-variant/10 overflow-hidden" open="">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-bold text-lg">What are the check-in and check-out timings?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant">
+                    Standard check-in is at 12:00 PM and check-out is at 11:00 AM. Early check-in is subject to availability.
+                </div>
+</details>
+<details class="group bg-white rounded-2xl shadow-sm border border-outline-variant/10 overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-bold text-lg">Is parking available at the hotel?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant">
+                    Yes, we offer secure, complimentary on-site parking for all our registered guests.
+                </div>
+</details>
+<details class="group bg-white rounded-2xl shadow-sm border border-outline-variant/10 overflow-hidden">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+<span class="font-bold text-lg">Are pets allowed?</span>
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="px-6 pb-6 text-on-surface-variant">
+                    Currently, we maintain a pet-free environment to ensure the highest standards of cleanliness for all guests.
+                </div>
+</details>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-desktop px-gutter max-w-container-max mx-auto" id="contact">
+<div class="bg-white rounded-[40px] shadow-2xl overflow-hidden grid md:grid-cols-5">
+<div class="md:col-span-2 bg-surface-container-low p-12 flex flex-col justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md mb-6 text-primary">Get in Touch</h2>
+<p class="font-body-md text-on-surface-variant mb-12">We are here to assist you with your booking or any special requests you may have.</p>
+<div class="space-y-6">
+<a class="flex items-center gap-4 text-primary hover:opacity-70 transition-opacity" href="tel:+910000000000">
+<span class="material-symbols-outlined">call</span>
+<span class="font-bold">+91 98765 43210</span>
+</a>
+<a class="flex items-center gap-4 text-primary hover:opacity-70 transition-opacity" href="https://wa.me/910000000000">
+<span class="material-symbols-outlined">chat</span>
+<span class="font-bold">WhatsApp Us</span>
+</a>
+<a class="flex items-center gap-4 text-primary hover:opacity-70 transition-opacity" href="mailto:info@hotelombalaji.com">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-bold">info@hotelombalaji.com</span>
+</a>
+</div>
+</div>
+<div class="mt-12 flex gap-4">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-sm">face_nod</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white cursor-pointer hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-3 p-12">
+<form class="space-y-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md">Full Name</label>
+<input class="w-full border-outline-variant/30 rounded-xl p-4 focus:ring-primary focus:border-primary transition-all" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md">Email Address</label>
+<input class="w-full border-outline-variant/30 rounded-xl p-4 focus:ring-primary focus:border-primary transition-all" placeholder="john@example.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md">Subject</label>
+<select class="w-full border-outline-variant/30 rounded-xl p-4 focus:ring-primary focus:border-primary transition-all">
+<option>Room Inquiry</option>
+<option>Event Booking</option>
+<option>Feedback</option>
+<option>Others</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md">Your Message</label>
+<textarea class="w-full border-outline-variant/30 rounded-xl p-4 focus:ring-primary focus:border-primary transition-all" placeholder="How can we help you?" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-white py-4 rounded-xl font-bold hover:bg-primary-container transition-colors shadow-lg">Send Inquiry</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-tertiary text-tertiary-fixed py-section-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-gutter max-w-container-max mx-auto">
+<div class="space-y-6">
+<h3 class="font-headline-sm text-headline-sm text-on-tertiary">Hotel Om Balaji</h3>
+<p class="font-body-md text-tertiary-fixed-dim">Delivering premium hospitality and unmatched cleanliness in the heart of Naroda, Ahmedabad since 2009.</p>
+</div>
+<div>
+<h4 class="font-label-md text-on-tertiary mb-6 uppercase tracking-wider">Quick Links</h4>
+<ul class="space-y-4">
+<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="#">Home</a></li>
+<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="#rooms">Our Rooms</a></li>
+<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="#services">Amenities</a></li>
+<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="#about">About Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-on-tertiary mb-6 uppercase tracking-wider">Policies</h4>
+<ul class="space-y-4">
+<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="#">Cancellation Policy</a></li>
+<li><a class="text-tertiary-fixed-dim hover:text-secondary-fixed transition-colors" href="#">Safety Protocols</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-on-tertiary mb-6 uppercase tracking-wider">Newsletter</h4>
+<p class="text-tertiary-fixed-dim mb-6">Stay updated with our latest offers.</p>
+<div class="flex gap-2">
+<input class="bg-white/5 border border-white/10 rounded-lg p-3 text-sm flex-grow focus:ring-secondary-fixed outline-none" placeholder="Email" type="email"/>
+<button class="bg-secondary-fixed text-on-secondary-fixed px-4 rounded-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-tertiary-fixed-dim text-sm">© 2024 Hotel Om Balaji. All rights reserved.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-tertiary-fixed-dim cursor-pointer hover:text-secondary-fixed transition-colors">payments</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim cursor-pointer hover:text-secondary-fixed transition-colors">credit_card</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim cursor-pointer hover:text-secondary-fixed transition-colors">account_balance_wallet</span>
+</div>
+</div>
+</footer>
+<script>
+        // Smooth reveal on scroll logic
+        const observerOptions = {
+            threshold: 0.1
+        };
 
-        <!-- <a href="https://wa.me/919712959111" class="float-btn bg-green-500 right-5 md:hidden">
-            <i class="fab fa-whatsapp text-2xl mr-2"></i> WhatsApp
-        </a>
-        <a href="tel:9712959111" class="float-btn bg-yellow-600 left-5 md:hidden">
-            <i class="fas fa-phone text-xl mr-2"></i> Call
-        </a> -->
-
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
-            // Initialize Animations
-            AOS.init({
-                duration: 800,
-                once: true,
-                offset: 100
-            });
-
-            // Navbar Scroll Effect
-            window.addEventListener('scroll', function () {
-                const nav = document.querySelector('nav');
-                if (window.scrollY > 50) {
-                    nav.classList.add('py-2', 'shadow-xl');
-                } else {
-                    nav.classList.remove('py-2', 'shadow-xl');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
                 }
             });
+        }, observerOptions);
 
-            // Form Validation & Logic
-            document.getElementById('inquiryForm').addEventListener('submit', function (e) {
-                e.preventDefault();
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
 
-                const name = document.getElementById('name').value;
-                const phone = document.getElementById('phone').value;
-                const room = document.getElementById('roomType').value;
-
-                if (name.length < 3) {
-                    alert("Please enter a valid name.");
-                    return;
-                }
-
-                if (!/^\d{10}$/.test(phone.replace(/\s/g, ""))) {
-                    alert("Please enter a valid 10-digit phone number.");
-                    return;
-                }
-
-                // Simple Success Message
-                alert(`Thank you ${name}! Your inquiry for ${room} has been received. We will contact you at ${phone} shortly.`);
-                this.reset();
-            });
-
-            // Smooth Scrolling for all anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        </script>
-    </body>
-
-    </html>
+        // Navbar transition
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow-md');
+                nav.classList.remove('py-4', 'shadow-sm');
+            } else {
+                nav.classList.add('py-4', 'shadow-sm');
+                nav.classList.remove('py-2', 'shadow-md');
+            }
+        });
+    </script>
+</body></html>
